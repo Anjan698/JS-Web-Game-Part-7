@@ -23,8 +23,9 @@ function newNonPlayableCharacter(x, y) {
 
     setInterval(moveCharacter, 1)
 
-    function walkEast() {
-        direction = 'east'
+   async function walkEast(time) {
+    await  sleep(2000)  
+    direction = 'east'
         element.src = `./assets/red-character/east.gif`
     }
 
@@ -38,7 +39,8 @@ function newNonPlayableCharacter(x, y) {
         element.src = `./assets/red-character/west.gif`
     }
 
-    function walkSouth() {
+    async function walkSouth(time) {
+        await sleep(2000)
         direction = 'south'
         element.src = `./assets/red-character/south.gif`
     }
@@ -56,4 +58,9 @@ function newNonPlayableCharacter(x, y) {
         walkSouth: walkSouth,
         stop: stop
     }
+}
+function sleep(time){
+    return new Promise(resolve => {
+        setTimeout(resolve, time)
+    })  
 }
